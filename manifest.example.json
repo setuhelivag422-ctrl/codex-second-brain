@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "updated_at": "2026-01-01",
+  "routing_policy": {
+    "read_all": false,
+    "default_entry_files": [
+      "AGENTS.md",
+      "index.md",
+      "manifest.json"
+    ],
+    "max_related_files_first_pass": 5
+  },
+  "entries": [
+    {
+      "id": "routing-rules",
+      "type": "protocol",
+      "scope": "global",
+      "status": "active",
+      "confidence": "high",
+      "path": "00_boot/routing-rules.md",
+      "tags": ["routing", "memory"],
+      "summary": "Defines how Codex should read the second brain by starting from entry files and then selecting only relevant memories."
+    },
+    {
+      "id": "task-entry-map-example",
+      "type": "protocol",
+      "scope": "global",
+      "status": "active",
+      "confidence": "medium",
+      "path": "00_boot/task-entry-map.example.md",
+      "tags": ["routing", "example"],
+      "summary": "Shows how common task phrases can map to a small set of candidate memory entries."
+    },
+    {
+      "id": "knowledge-capture",
+      "type": "protocol",
+      "scope": "global",
+      "status": "active",
+      "confidence": "high",
+      "path": "01_protocols/knowledge-capture.md",
+      "tags": ["capture", "triage"],
+      "summary": "Defines the create, update, merge, skip, and deprecate workflow for new memory."
+    }
+  ]
+}
