@@ -31,6 +31,27 @@ A local-first second brain for Codex: structured memory, task routing, forgettin
 - 会遗忘：支持 `active`、`draft`、`deprecated`、`superseded`。
 - 有边界：自动化只能提醒、检查、生成 draft，不能偷偷改长期记忆。
 
+## Why This Exists
+
+There are already strong AI memory systems, semantic memory frameworks, Claude Code hook projects, and Obsidian-based second brains.
+
+This repository intentionally takes a narrower path:
+
+- It is not a vector database or agent memory backend.
+- It is not an Obsidian vault automation system.
+- It is not a full conversation capture pipeline.
+- It is not trying to remember everything.
+
+Instead, it is a small governance skeleton for Codex-readable memory:
+
+- what should be remembered
+- when memory should be activated
+- when old memory should be ignored
+- how to avoid dumping everything into context
+- how to keep AI collaboration comfortable for the user
+
+The opinion is simple: useful AI memory is not only storage and retrieval. It also needs routing, restraint, decay, and user-comfort boundaries.
+
 ## Repository Layout
 
 ```text
