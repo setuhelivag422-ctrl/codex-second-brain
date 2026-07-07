@@ -8,6 +8,37 @@ A local-first second brain for Codex: structured memory, task routing, forgettin
 
 它的目标很简单：让用户使用 Codex 更舒服、更省心、更少重复解释。
 
+## The Short Story
+
+I got tired of explaining the same project background, preferences, tool commands, and past mistakes to every new Codex thread.
+
+So this project treats memory as a small local governance system:
+
+- Codex starts from a few entry files.
+- It reads the manifest instead of the whole library.
+- It picks only the memories that match the current task.
+- Old or uncertain memories are downgraded instead of silently steering future work.
+
+The goal is not to make Codex remember everything. The goal is to help Codex know what matters now.
+
+## How It Routes Memory
+
+```mermaid
+flowchart TD
+    A["User request"] --> B["AGENTS.md"]
+    B --> C["index.md"]
+    C --> D["manifest.json"]
+    D --> E["Task entry map"]
+    E --> F{"Relevant now?"}
+    F -->|Yes| G["Read 3-5 memory entries"]
+    F -->|No| H["Keep memory silent"]
+    G --> I["Act with current request first"]
+    H --> I
+    I --> J{"Worth capturing?"}
+    J -->|Yes| K["create / update / merge / deprecate"]
+    J -->|No| L["skip temporary context"]
+```
+
 ## It Solves
 
 长期使用 AI 编程助手时，很多信息会反复出现：
@@ -51,6 +82,28 @@ Instead, it is a small governance skeleton for Codex-readable memory:
 - how to keep AI collaboration comfortable for the user
 
 The opinion is simple: useful AI memory is not only storage and retrieval. It also needs routing, restraint, decay, and user-comfort boundaries.
+
+## Example Use Case
+
+You have a long-running project with its own style, commands, constraints, and recurring mistakes.
+
+Without a second brain, every new AI thread starts cold:
+
+```text
+Here is the project.
+Here is what we tried.
+Here is what failed.
+Here is how I like answers.
+Here is what not to touch.
+```
+
+With this structure, Codex can start from:
+
+```text
+AGENTS.md -> index.md -> manifest.json -> 3 to 5 relevant entries
+```
+
+That means the assistant gets the right context without dragging the entire knowledge base into every task.
 
 ## Repository Layout
 
@@ -99,6 +152,21 @@ Pick only 3 to 5 relevant entries based on the current task.
 If my current request conflicts with old memory, follow my current request.
 ```
 
+## Recommended GitHub Topics
+
+```text
+codex
+ai-memory
+second-brain
+local-first
+markdown
+agent-memory
+knowledge-management
+ai-workflow
+developer-tools
+personal-knowledge-management
+```
+
 ## What To Keep Private
 
 Public repositories should not include:
@@ -116,3 +184,34 @@ Use this repository as a public skeleton. Keep your real second brain private.
 ## One Sentence
 
 Codex Second Brain is a long-term collaboration layer for Codex, not a decorative knowledge base.
+
+## Social Post Draft
+
+```text
+I built a local second brain for Codex.
+
+Not a vector database.
+Not an Obsidian vault.
+Not a system that tries to remember everything.
+
+The problem I wanted to solve was simpler:
+
+I do not want to explain the same project background, preferences, commands, and past mistakes to every new AI thread.
+
+So I made a small local memory governance skeleton:
+
+- AGENTS.md for behavior rules
+- index.md for human/AI navigation
+- manifest.json for machine routing
+- task entry maps for common workflows
+- active/draft/deprecated/superseded memory states
+- capture rules so not everything becomes memory
+- forgetting rules so old context does not pollute new work
+
+The core idea:
+Useful AI memory is not just storage and retrieval.
+It also needs routing, restraint, decay, and user-comfort boundaries.
+
+GitHub:
+https://github.com/setuhelivag422-ctrl/codex-second-brain
+```
